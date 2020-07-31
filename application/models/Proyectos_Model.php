@@ -21,10 +21,10 @@ class Proyectos_Model extends CI_Model
         return $this->db->affected_rows();
     }
     //Editar proyecto existente
-    function modificarProyecto($data)
+    function modificarProyecto($data,$where)
     {
-        $this->db->where("id_proyecto",$data["id_proyecto"]);
-        $this->db->update('proyectos',$data);
+        // $this->db->where("id_proyecto",$data["id_proyecto"]);
+        $this->db->update('proyectos',$data,$where);
         return $this->db->affected_rows();
     }
 

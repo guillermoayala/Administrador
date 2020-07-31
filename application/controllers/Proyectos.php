@@ -38,10 +38,9 @@ class Proyectos extends CI_Controller
        
        
     }
-    public function modificarProyecto($id)
+    public function modificarProyecto($id = null)
     {
             $this->Proyectos_Model->obtenerProyectoId($id);
-
             if($id == null)
             {
                 redirect('NoExiste');
@@ -54,13 +53,14 @@ class Proyectos extends CI_Controller
                 $usuario = $this->input->post('id_Usuario');
                 $estado = $this->input->post('id_estado');
                 
-                $modificar['id_proyecto'] = $id;
+                // $modificar['id_proyecto'] = $id;
+                $where = array('id_proyecto' => $id);
                 $modificar['nombreProyecto'] = $nombre;
                 $modificar['descripcion'] = $descripcion;
                 $modificar['id_Usuario'] = $usuario;
                 $modificar['avance'] = $avance;
                 $modificar['id_estado'] = $estado;
-                $this->Proyectos_Model->modificarProyecto($modificar);
+                $this->Proyectos_Model->modificarProyecto($modificar,$where);
                 redirect('Proyectos');
             }
         }

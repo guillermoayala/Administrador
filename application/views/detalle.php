@@ -210,16 +210,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="col-lg-12">
                                 <label for="" class='col-md-2' value="<?=$p["id_proyecto"]?>"  name="id_proyecto" id="id_proyecto" type="hidden"></label>
                                     <h6>Nombre del proyecto</h6>    
-                                    <input type="text" class="form-control" placeholder="Nombre de la tarea" id="nombreProyecto">
+                                    <input type="text" name="nombreProyecto" class="form-control" placeholder="Nombre de la tarea" id="nombreProyecto">
                                 </div>
                                  <div class="col-lg-12 mt-4">
                                      <h6>Descripcion</h6>
-                                     <textarea class="form-control" id="descripcion"></textarea>
+                                     <textarea name="descripcion" class="form-control" id="descripcion"></textarea>
 
                                      <div class="col-lg-12 my-4 mt-4">
                                         <div>
                                         <h6>Avance</h6>                           
-                                             <input type="range" class="custom-range" id="avance" step="10" value="<?= $p["avance"]?>" min="0" max="100">
+                                             <input name="avance" type="range" class="custom-range" id="avance" step="10" value="<?= $p["avance"]?>" min="0" max="100">
                                         </div>
                                          <span class="font-weight-bold text-primary ml-2 valueSpan2" value="<?= $p["avance"]?>"></span>
                                      </div>
@@ -228,7 +228,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                      <div class="row">
                                     <div class="col-lg-6 mt-4">     
                                             <h6>Estado</h6>                           
-                                            <select class="form-control" id="estado">
+                                            <select class="form-control" id="estado" name="id_estado">
                                                 <?php
                                                 foreach ($estados as $est) {?>
                                                 <option value='<?= $est["id_estado"]?>'> <?=$est["nombreEstado"]?></option>
@@ -238,7 +238,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     </div>                                       
                                         <div class="col-lg-6 mt-4">     
                                         <h6>Encargado</h6>
-                                             <select class="form-control">
+                                             <select name="id_Usuario" class="form-control">
                                              <?php
                                                 foreach ($usuarios as $u) {?>
                                                 <option value='<?= $u["id_Usuario"]?>'> <?=$u["nombre"]?> <?=$u["apellido"]?></option>
